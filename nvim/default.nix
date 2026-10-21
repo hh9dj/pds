@@ -45,7 +45,6 @@
   extraPackages = [
     pkgs.ripgrep
     pkgs.fd
-    pkgs.git
   ];
 
   extraConfigLua = lib.mkAfter ''

@@ -9,36 +9,24 @@ let
   };
 
   tmux = import ./tmux { inherit pkgs; };
-  zsh = import ./zsh { inherit pkgs; };
   opencode = import ./opencode { inherit pkgs; };
-
-  tools = with pkgs; [
-    git
-    ripgrep
-    fd
-    fzf
-    bat
-    eza
-    zoxide
-    go
-    python3
-  ];
 in
 pkgs.buildEnv {
   name = "pds";
   paths = [
     nvim
     tmux
-    zsh
     opencode
-  ]
-  ++ tools;
+  ];
   pathsToLink = [
     "/bin"
     "/share/man"
   ];
+  postBuild = ''
+    rm -f $out/bin/nixvim-print-init
+  '';
   meta = {
-    description = "Personal dev shell: portable neovim + tmux + zsh + opencode with minimal config and tooling";
+    description = "Minimal portable shell with nvim, tmux and opencode";
     platforms = lib.platforms.unix;
   };
 }
