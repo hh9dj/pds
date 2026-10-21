@@ -18,9 +18,19 @@ nix shell github:hh9dj/pds#pds
 
 Contents:
 
-- `nvim/`: neovim config (snacks picker/explorer, blink.cmp, treesitter, LSP for go, python, nix, lua, bash)
+- `nvim/`: Nixvim config built from mini.nvim: mini.pick file and grep pickers, mini.files explorer, mini.base16 light and dark theme, and minimal options
 - `tmux/`: `tmux.conf` and `scripts/vim_edit`
 - `zsh/zshrc`: bindings, history, aliases; fzf, autosuggestions, syntax highlighting, zoxide and completion are wired in by `default.nix`
-- Tools: git, ripgrep, fd, fzf, bat, eza, zoxide, go/gopls/gofumpt/golines, python3/pyright/ruff, nixd/nixfmt, lua-language-server/stylua, bash-language-server
+- Tools: git, ripgrep, fd, fzf, bat, eza, zoxide, go, python3
+
+Neovim keymaps:
+
+- `<leader><space>`: find files
+- `<leader>sg`: live grep
+- `<leader>e`: file explorer
+- `zz`: quit all
+- `<Esc>`: clear search highlight
+
+Switch the theme with `:set background=light` or `:set background=dark`.
 
 Test a change with `nix build .#pds` before pushing.
