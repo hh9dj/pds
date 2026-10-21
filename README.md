@@ -1,6 +1,6 @@
 # PDS
 
-Personal dev shell: portable neovim, tmux and zsh with a minimal config and CLI tooling.
+Personal dev shell: portable neovim, tmux, zsh and opencode with a minimal config and CLI tooling.
 
 ## Install Nix
 
@@ -16,12 +16,15 @@ Flakes are enabled by default with this installer. Lix also works with the same 
 nix shell github:hh9dj/pds#pds
 ```
 
-Contents:
+## Layout
 
 - `nvim/`: Nixvim config built from mini.nvim: mini.pick file and grep pickers, mini.files explorer, mini.base16 light and dark theme, and minimal options
-- `tmux/`: `tmux.conf` and `scripts/vim_edit`
-- `zsh/zshrc`: bindings, history, aliases; fzf, autosuggestions, syntax highlighting, zoxide and completion are wired in by `default.nix`
-- Tools: git, ripgrep, fd, fzf, bat, eza, zoxide, go, python3
+- `tmux/`: `default.nix`, `tmux.conf` and `scripts/vim_edit`; `default.nix` builds the config and the `tmux` wrapper
+- `zsh/`: `default.nix` and `zshrc`; `default.nix` adds fzf, autosuggestions, syntax highlighting, zoxide and completion, and builds the `zsh` wrapper
+- `opencode/`: `default.nix` and `opencode.json`; `default.nix` builds the `opencode` wrapper with `OPENCODE_CONFIG`
+- `default.nix`: builds each component and assembles the `pds` environment
+
+Tools: git, ripgrep, fd, fzf, bat, eza, zoxide, go, python3.
 
 Neovim keymaps:
 
